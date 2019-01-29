@@ -38,7 +38,7 @@ from TaskQueue import views as taskview
 from Category import views as categoryview
 
 router = routers.DefaultRouter()
-router.register(r'articleapi', viewsets.ArticleViewSet)
+#router.register(r'articleapi', viewsets.ArticleViewSet)
 
 urlpatterns = [
     url(r'^$', user_views.home, name='home'),
