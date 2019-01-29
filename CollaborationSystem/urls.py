@@ -182,6 +182,7 @@ urlpatterns = [
     url(r'^display_community_types/$', communityview.display_community_types, name='display_community_types'),
 
     url(r'^create_category/$', categoryview.create_category, name='create_category'),
+    url(r'api/community/', include('Community.api.urls', namespace = 'api-community')),
 
 ]
 
