@@ -6,7 +6,6 @@ class FacetedProductSearchForm(FacetedSearchForm):
     def __init__(self, *args, **kwargs):
         data = dict(kwargs.get("data", []))
         self.categorys = data.get('category', [])
-        #self.brands = data.get('brand', [])
         super(FacetedProductSearchForm, self).__init__(*args, **kwargs)
 
     def search(self):

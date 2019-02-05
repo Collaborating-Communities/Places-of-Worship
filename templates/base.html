@@ -204,17 +204,27 @@ $(document).ready(function() {
         <li class="menu-search">
           <span class="sep"></span>
           <i class="fa fa-search search-btn"></i>
-          <div class="search-box">
-            <form method ='post' action="/search/">
+          <!-- <form method ='post' action="/search/">
               {% csrf_token %}
               <div class="input-group">
-                <input type="text" placeholder="Search" class="form-control" id="searchcriteria" name="searchcriteria">
+                
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </span>
+              </div>
+            </form> -->
+           <div class="search-box"> 
+            <form method ='get' action="/search/">
+              {% csrf_token %}
+              <div class="input-group">
+                <input type="text" placeholder="Search" class="form-control name="q" id="q" autocomplete="off">
+                <!-- <input type="text" placeholder="Search" class="form-control" id="searchcriteria" name="searchcriteria"> -->
                 <span class="input-group-btn">
                   <button class="btn btn-primary" type="submit">Search</button>
                 </span>
               </div>
             </form>
-          </div>
+           </div> 
         </li>
         <!-- END TOP SEARCH -->
       </ul>

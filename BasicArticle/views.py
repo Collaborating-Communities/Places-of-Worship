@@ -25,6 +25,9 @@ from Recommendation_API.views import get_Recommendations
 import json
 from etherpad.views import getHTML, getText, deletePad, create_session_community, create_session_group, get_pad_id, get_pad_usercount
 from django.contrib import messages
+from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
+from haystack.query import SearchQuerySet
+from .forms import FacetedProductSearchForm
 
 def article_autosave(request,pk):
 	if request.user.is_authenticated:
@@ -370,3 +373,9 @@ def article_watch(request, article):
 
 class SimpleModelHistoryCompareView(HistoryCompareDetailView):
     model = Articles
+
+class FacetedSearchView(BaseFacetedSearchView):
+
+    form_class = FacetedProductSearchForm
+    facet_fields = []
+    template_name = 'search_result.html'

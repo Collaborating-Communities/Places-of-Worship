@@ -725,8 +725,5 @@ def display_community_types(request):
 class FacetedSearchView(BaseFacetedSearchView):
 
     form_class = FacetedProductSearchForm
-    # facet_fields = ['category']
     facet_fields = []
     template_name = 'search_result.html'
-    #paginate_by = 3
-    #context_object_name = 'object_list'

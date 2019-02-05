@@ -47,9 +47,9 @@ facets: {{ facets.fields.category }}
 
         {% if query %}
             <h3>Results</h3>
-            <div class="col-md-12 col-sm-12">
-            <div class="row content-page">
-            <h3> Communities </h3>
+            <div class="container">
+
+            <h4> Communities </h4>
                
             {% for result in object_list %}
                 
@@ -110,10 +110,9 @@ facets: {{ facets.fields.category }}
             {% endfor %}
 
         </div>
-        </div>
 
         <div class="container">
-            <h3> Articles </h3>
+            <h4> Articles </h4>
             {% for result in object_list %}
                 {% if result.object.title %}
                 <!-- BEGIN CONTENT -->
