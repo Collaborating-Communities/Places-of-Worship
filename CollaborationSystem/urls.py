@@ -36,6 +36,9 @@ from Recommendation_API import views
 from Media import views as mediaview
 from TaskQueue import views as taskview
 from Category import views as categoryview
+from Community.forms import FacetedSearchForm
+from Community.views import FacetedSearchView
+from haystack.query import SearchQuerySet
 
 router = routers.DefaultRouter()
 #router.register(r'articleapi', viewsets.ArticleViewSet)
@@ -132,7 +135,6 @@ urlpatterns = [
 
     url(r'^group_content/(?P<pk>\d+)/$', group_views.group_content, name='group_content'),
     url(r'^FAQs/$', web.FAQs, name ='FAQs' ),
-    url(r'^search/', include('haystack.urls')),
 
     url(r'^feedback/$', web.provide_feedback, name ='provide_feedback' ),
     url(r'^contact_us/$', web.contact_us, name ='contact_us' ),
@@ -191,7 +193,8 @@ from django_nyt.urls import get_pattern as get_nyt_pattern
 
 urlpatterns += [
     url(r'^wiki-notifications/', get_nyt_pattern()),
-    url(r'^wiki/', get_wiki_pattern())
+    url(r'^wiki/', get_wiki_pattern()),
+    url(r'^search/', FacetedSearchView.as_view(), name='haystack_search'),
 ]
 
 if settings.DEBUG:

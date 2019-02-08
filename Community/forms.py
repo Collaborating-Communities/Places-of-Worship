@@ -1,9 +1,4 @@
-from django import forms
 from haystack.forms import FacetedSearchForm
-
-class NewArticleForm(forms.Form):
-	title  = forms.CharField()
-	body   = forms.CharField(widget=forms.Textarea)
 
 
 class FacetedProductSearchForm(FacetedSearchForm):

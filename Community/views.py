@@ -38,6 +38,9 @@ from Category.models import Category
 from Category.views import create_group_category
 from django.contrib import messages
 from PIL import Image
+from haystack.generic_views import FacetedSearchView as BaseFacetedSearchView
+from haystack.query import SearchQuerySet
+from .forms import FacetedProductSearchForm
 
 def display_communities(request):
 	if request.method == 'POST':
@@ -718,3 +721,9 @@ def create_community_types(request):
 def display_community_types(request):
 	ctypes=CommunityTypes.objects.all()
 	return render(request, 'placesofworship.html', {'ctypes':ctypes} )
+
+class FacetedSearchView(BaseFacetedSearchView):
+
+    form_class = FacetedProductSearchForm
+    facet_fields = []
+    template_name = 'search_result.html'

@@ -72,6 +72,8 @@
 
 <!-- Data tables -->
   <link href="{% static 'datatable/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+
+  <script src="{% static 'js/our_search_code.js' %}"></script>
 <!--
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -202,17 +204,27 @@ $(document).ready(function() {
         <li class="menu-search">
           <span class="sep"></span>
           <i class="fa fa-search search-btn"></i>
-          <div class="search-box">
-            <form method ='post' action="/search/">
+          <!-- <form method ='post' action="/search/">
               {% csrf_token %}
               <div class="input-group">
-                <input type="text" placeholder="Search" class="form-control" id="searchcriteria" name="searchcriteria">
+                
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit">Search</button>
+                </span>
+              </div>
+            </form> -->
+           <div class="search-box"> 
+            <form method ='get' action="/search/">
+              {% csrf_token %}
+              <div class="input-group">
+                <input type="text" placeholder="Search" class="form-control name="q" id="q" autocomplete="off">
+                <!-- <input type="text" placeholder="Search" class="form-control" id="searchcriteria" name="searchcriteria"> -->
                 <span class="input-group-btn">
                   <button class="btn btn-primary" type="submit">Search</button>
                 </span>
               </div>
             </form>
-          </div>
+           </div> 
         </li>
         <!-- END TOP SEARCH -->
       </ul>
@@ -295,7 +307,7 @@ $(document).ready(function() {
 
 <script language="JavaScript" type="text/javascript" src="{% static 'assets/plugins/jquery.min.js' %}" ></script>
 {% block javascript %}{% endblock %}
-<!--<script src="{% static 'js/jquery.js' %}"></script>-->
+<script src="{% static 'js/jquery.js' %}"></script>
 
 <script src="{% static 'js/propper.min.js' %}"></script>
 <!--<script src="{% static 'js/bootstrap.min.js' %}"></script>-->
