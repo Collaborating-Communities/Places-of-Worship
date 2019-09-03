@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /admin/
+
+Sitemap: http://collab.nvli.in/community/sitemap.xml/
+
